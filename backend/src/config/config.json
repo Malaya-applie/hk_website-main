@@ -1,0 +1,10 @@
+{
+  "development": {
+    "username": "root",
+    "password": "123456",
+    "database": "portofolio",
+    "host": "localhost",
+    "dialect": "mysql",
+    "models-path": "./src/models"
+  }
+}
