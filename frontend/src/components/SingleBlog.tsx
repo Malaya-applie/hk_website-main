@@ -36,15 +36,15 @@ const SingleBlog = ({ type }: BlogProps) => {
   return (
     <>
       {oneBlog && (
-        <div className="flex flex-wrap lg:flex-nowrap gap-4 mb-10">
+        <div className="flex flex-wrap md:flex-nowrap lg:flex-nowrap gap-4 mb-10">
           <img
             src={`${import.meta.env.VITE_API_URL}/api/img/${oneBlog?.image}`}
             alt={`${oneBlog?.title}`}
-            className="lg:w-1/3"
+            className="lg:w-1/3 md:w-1/3 object-cover"
           />
           <div className="lg:w-2/3 my-8 gap-4 flex flex-col">
-            <h2 className="text-3xl">{oneBlog?.title}</h2>
-            <p className="text-muted-foreground text-sm truncate whitespace-normal line-clamp-2">
+            <h2 className="lg:text-3xl md:text-2xl">{oneBlog?.title}</h2>
+            <p className="text-muted-foreground text-sm whitespace-normal">
               {oneBlog?.introduction}
             </p>
             <div className="grid grid-cols-2 gap-2 justify-start w-max">
@@ -53,7 +53,7 @@ const SingleBlog = ({ type }: BlogProps) => {
               <p>{oneBlog?.Category?.name}</p>
               <p>{moment(oneBlog?.createdAt).format("MMMM DD, YYYY")}</p>
             </div>
-            <NavButton text="Read More" url={`/blog/${oneBlog?.id}`} />
+            <NavButton classname="text-center" text="Read More" url={`/blog/${oneBlog?.id}`} />
           </div>
         </div>
       )}

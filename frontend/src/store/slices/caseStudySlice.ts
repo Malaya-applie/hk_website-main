@@ -44,3 +44,11 @@ export const {
   deleteCaseStudy,
 } = caseStudySlice.actions;
 export default caseStudySlice.reducer;
+
+
+
+
+
+
+
+

@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "123456",
-    "database": "portofolio",
+    "database": "portfolio",
     "host": "localhost",
     "dialect": "mysql",
     "models-path": "./src/models"

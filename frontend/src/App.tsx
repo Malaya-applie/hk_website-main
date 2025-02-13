@@ -6,6 +6,10 @@ import { useEffect } from "react";
 import { setUser } from "./store/slices/userSlices";
 import { fetchUserProfile } from "@/api/apiService";
 import Blog from "./pages/Blog";
+import PortfolioDetails from "./pages/PortfolioDetails";
+import ServiceDetail from "./pages/ServiceDetail";
+
+
 const Home = lazy(() => import("./pages/Home"));
 const Portfolio = lazy(() => import("./pages/Portfolio"));
 const ContactUs = lazy(() => import("./pages/ContactUs"));
@@ -41,6 +45,17 @@ const BlogTable = lazy(() => import("./components/table/BlogTable"));
 const BlogForm = lazy(() => import("./components/forms/BlogForm"));
 const ImagePage = lazy(() => import("./pages/ImagePage"));
 const UserLayout = lazy(() => import("./layouts/UserLayout"));
+const PortfolioDetailsTable = lazy(() => import("./components/table/PortfolioDetailsTable"));
+const PortfolioDetailsForm = lazy(() => import("./components/forms/PortfolioDetailsForm"));
+const KeyFeaturesTable = lazy(() => import("./components/table/KeyFeaturesTable"));
+const KeyFeaturesForm = lazy(() => import("./components/forms/KeyFeaturesForm"));
+const TechnologyStackTable = lazy(() => import("./components/table/TechnologyStackTable"));
+const TechnologyStackForm = lazy(() => import("./components/forms/TechnologyStackForm"));
+const ServiceDetailsTable = lazy(() => import("./components/table/ServiceDetailsTable"));
+const ServiceDetailForm = lazy(() => import("./components/forms/ServiceDetailForm"));
+const ServiceImagesTable = lazy(() => import("./components/table/ServiceImagesTable"));
+const ServiceImagesForm = lazy(() => import("./components/forms/ServiceImagesForm"));
+
 
 interface User {
   role: string;
@@ -75,6 +90,8 @@ const App = () => {
           <Route path="about-me" element={<AboutMe />} />
           <Route path="blog-details" element={<BlogDetails />} />
           <Route path="blog/:id" element={<Blog />} />
+          <Route path="portfolio-details/:id" element={<PortfolioDetails />} />
+          <Route path="serviceDetail" element={<ServiceDetail /> } />
         </Route>
         <Route path="/login" element={<Login />} />
         {user && user.role === "admin" && (
@@ -128,6 +145,21 @@ const App = () => {
             <Route path="blog/create" element={<BlogForm />} />
             <Route path="blog/:id/update" element={<BlogForm />} />
             <Route path="image" element={<ImagePage />} />
+            <Route path="portfolio-details" element={<PortfolioDetailsTable title="Portfolio Details" />} />
+            <Route path="portfolio-details/create" element={<PortfolioDetailsForm />} />
+            <Route path="portfolio-details/:id/update" element={<PortfolioDetailsForm />} />
+            <Route path="portfolio-details-key-features" element={<KeyFeaturesTable title="Key Features" />} />
+            <Route path="portfolio-details-key-features/create" element={<KeyFeaturesForm />} />
+            <Route path="portfolio-details-key-features/:id/update" element={<KeyFeaturesForm />} />
+            <Route path="portfolio-technology-stack" element={<TechnologyStackTable title="Technology Stack" />} />
+            <Route path="portfolio-technology-stack/create" element={<TechnologyStackForm />} />
+            <Route path="portfolio-technology-stack/:id/update" element={<TechnologyStackForm />} />
+            <Route path="service-details" element={<ServiceDetailsTable title="Service Details" />} />
+            <Route path="service-details/create" element={<ServiceDetailForm />} /> 
+            <Route path="service-details/:id/update" element={<ServiceDetailForm />} />
+            <Route path="service-details-images" element={<ServiceImagesTable title={"Service Images"} />} />
+            <Route path="service-details-images/create" element={<ServiceImagesForm />} />
+            <Route path="service-details-images/:id/update" element={<ServiceImagesForm />} />
           </Route>
         )}
         <Route path="*" element={<NotFound />} />

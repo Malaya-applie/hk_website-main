@@ -29,6 +29,7 @@ import { ArrowDown, ArrowUp, Search } from "lucide-react";
 import Paginator from "./paginator";
 import { useNavigate } from "react-router-dom";
 
+ 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];

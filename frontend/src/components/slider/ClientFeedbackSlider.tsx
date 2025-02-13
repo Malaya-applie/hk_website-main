@@ -8,6 +8,7 @@ import { StepBack, StepForward } from "lucide-react";
 import { Separator } from "../ui/separator";
 import { useRef } from "react";
 import { useGetClientFeedbacksQuery } from "@/api/clientFeedbackApi";
+import { Autoplay } from "swiper/modules"; // Import Autoplay module
 
 const ClientFeedbackSlider = () => {
   const { data: labelsRead } = useGetLabelsReadQuery(undefined);
@@ -26,12 +27,12 @@ const ClientFeedbackSlider = () => {
       (swiperRef.current as any).swiper.slidePrev();
     }
   };
-  console.log(ClientFeedback);
+  
 
   return (
-    <div className="mx-20">
-      <div className="flex items-center justify-between sm:flex-row flex-col gap-8 mb-8">
-        <h4 className="sm:text-5xl text-2xl space-y-4">
+    <div className="lg:mx-30 mx-10">
+      <div className="flex lg:items-center justify-between sm:flex-row flex-col gap-7 mb-8">
+        <h4 className="sm:text-5xl text-2xl md:text-3xl space-y-4">
           {labelsRead?.client_feedback_title}
         </h4>
         <div className="flex items-center">
@@ -45,11 +46,19 @@ const ClientFeedbackSlider = () => {
         </div>
       </div>
       <Swiper
-        slidesPerView={window.innerWidth < 1024 ? "auto" : 3}
+        // slidesPerView={window.innerWidth < 1024 ? "auto" : 3}
+        breakpoints={{
+          640: { slidesPerView: 1 }, // Small screens: 1 slide
+          768: { slidesPerView: 2 }, // Medium screens: 2 slides
+          1024: { slidesPerView: 3 }, // Large screens: 3 slides
+        }}
         spaceBetween={30}
         className="mySwiper"
         key={casestudies}
         ref={swiperRef}
+        loop={true}
+        autoplay={{ delay: 3000, disableOnInteraction: false }} // Auto every slide every 3 seconds
+        modules={[Autoplay]} // Add Autoplay module to play the slides 
       >
         {ClientFeedback?.map((feedback: ClientFeedbackInterface) => {
           const imageUrl = `${import.meta.env.VITE_API_URL}/api/img/${
@@ -59,7 +68,7 @@ const ClientFeedbackSlider = () => {
             <SwiperSlide key={feedback.id} className="">
               <div>
                 <p
-                  className="mb-4"
+                  className="mb-4 text-xs md:text-lg lg:text-sm"
                   dangerouslySetInnerHTML={{ __html: feedback.feedback }}
                 />
                 <div className="flex items-center gap-4">

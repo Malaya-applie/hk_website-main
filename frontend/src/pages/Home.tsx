@@ -10,7 +10,7 @@ import Statistics from "@/components/Statistics";
 
 const Home = () => {
   return (
-    <>
+    <div className="overflow-x-hidden">
       <Hero />
       <Statistics />
       <Section />
@@ -20,7 +20,7 @@ const Home = () => {
       <RecentBlog />
       <Award />
       <NewsLetter />
-    </>
+    </div>
   );
 };
 

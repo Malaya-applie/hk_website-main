@@ -62,7 +62,7 @@ export function InquiryForm({
         onSubmit={handleSubmit(onSubmitHandler)}
         className={cn("grid px-6 sm:px-14 py-16 gap-8", className)}
       >
-        <p className="text-center text-xl">
+        <p className="text-center md:text-xs text-xs lg:text-xl">
           Please fill out the form and I will be in touch
         </p>
         <div className="grid gap-2">

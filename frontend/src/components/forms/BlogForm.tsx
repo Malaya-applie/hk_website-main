@@ -71,7 +71,7 @@ export default function BlogForm() {
   watch("description");
 
   const getBlogById = async (id: number) => {
-    try {
+    try {``
       const selectedData = await fetchBlogById(id);
       reset(selectedData);
       setEditorData(selectedData.description);

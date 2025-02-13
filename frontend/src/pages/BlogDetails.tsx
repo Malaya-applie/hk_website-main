@@ -21,7 +21,7 @@ const BlogDetails = () => {
         </h2>
         <ToggleGroup
           type="single"
-          className="gap-5 mb-10 flex-wrap"
+          className="lg:flex lg:flex-wrap lg:gap-5 grid grid-cols-3 gap-3 mb-10"
           defaultValue="all"
         >
           <ToggleGroupItem
@@ -40,7 +40,7 @@ const BlogDetails = () => {
               value={category.id.toString()}
               aria-label={category.name}
               key={category.id}
-              className="border-primary border-[1px] lg:w-1/6 md:w-1/3 sm:w-1/2 w-full rounded-none disabled:opacity-100 disabled:pointer-events-auto disabled:cursor-pointer"
+              className="border-primary border-[1px] lg:w-1/6 md:w-1/3 sm:w-1/2 w-full rounded-none disabled:opacity-100 disabled:pointer-events-auto disabled:cursor-pointer text-[10px] lg:text-sm"
               onClick={() => setType(category.id.toString())}
             >
               {category.name}

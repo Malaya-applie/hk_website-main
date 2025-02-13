@@ -18,6 +18,12 @@ import socialMediaRoutes from "./socialMediaRoutes";
 import categoryRoutes from "./categoryRoutes";
 import blogRoutes from "./blogRoutes";
 import fileRoutes from "./fileRoutes";
+import portfolioDetailRoutes from "./portfolioDetailRoutes";
+import portfolioFeaturesRoutes from "./portfolioFeaturesRoutes";
+import portfolioTechStackRoutes from "./portfolioTechStackRoutes"
+import serviceDetailRoutes from "./serviceDetailRoutes";
+import serviceImageRoutes from "./serviceImageRoutes";
+
 
 router.use("/admin", isAdmin, adminRoutes);
 router.use("/user", userRoutes);
@@ -35,5 +41,11 @@ router.use("/social-media", socialMediaRoutes);
 router.use("/category", categoryRoutes);
 router.use("/blog", blogRoutes);
 router.use("/file", fileRoutes);
+router.use("/portfolio-details", portfolioDetailRoutes);
+router.use("/portfolio-features", portfolioFeaturesRoutes);
+router.use("/portfolio-tech-stack", portfolioTechStackRoutes);
+router.use("/serviceDetails", serviceDetailRoutes);
+router.use("/serviceDetails/image", serviceImageRoutes);
+
 
 export default router;

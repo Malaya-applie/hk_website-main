@@ -7,94 +7,93 @@ import NavButton from "./NavButton";
 const Hero = () => {
   const { data: labelsRead } = useGetLabelsReadQuery(undefined);
   const { data: fetchedBrandLogos } = useGetBrandLogosQuery(undefined);
-    console.log(labelsRead);
     
   return (
-    <div>
-        <div className=" mx-20 px-4 mt-24 flex justify-center mb-20">
-         
+    <div className="px-4 sm:px-8 lg:px-20 mt-12 sm:mt-24">
+      <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-between mb-16">
         
-        <img
-          src={labelsRead?.main_image}
-          alt={`Hitesh Khunt Photo`}
-          className="h-[598px] w-[370px] sm:h-[400px] mb:h-[500px] object-contain"
-        />
-        
-      
+        {/* Image Section */}
+        <div className="w-full flex justify-center">
+          <img
+            src={labelsRead?.main_image}
+            alt="Hitesh Khunt Photo"
+            className="w-[280px] sm:w-[320px] md:w-[370px] lg:w-[400px] object-contain"
+          />
           
-        
-        <div className="max-w-2xl">
-
-        <h1 className="mb-1 text-4xl">Hitesh Khunt</h1>
-        <h3 className="mb-5 text-2xl">CEO & Cofounder of Applie Infosol Pvt Ltd</h3>
-        <p className="mb-4">Hi, I’m Hitesh Khunt—a creative tech enthusiast with over 13 years of experience in the IT industry. I specialize in crafting premium solutions that seamlessly blend technology and design, delivering results that are as functional as they are visually impactful.
-        </p>
-
-        <p className="mb-4">From solving complex problems to creating unique, user-centric designs, my approach balances innovation with aesthetics to help businesses achieve their goals. If you’re looking for a blend of cutting-edge technology and thoughtful design, you’re in the right place.
-        </p>
-        
-        <p>Scroll to see how I bring ideas to life with precision and creativity.</p>
-          
-          <div className="flex gap-4 mt-8">
-        <NavButton
-          text={"My work"}
-          url={labelsRead?.service_slider_btn_url}
-          classname="bg-secondary text-primary uppercase"
-        />
-
-         <NavButton
-          text={labelsRead?.service_slider_btn_text}
-          url={labelsRead?.service_slider_btn_url}
-          classname="bg-primary text-secondary uppercase hover:bg-secondary hover:text-primary"
-        />
-        </div>
-
         </div>
       
+        {/* Content Section */}
+        <div className="w-full text-center lg:text-left mt-6 lg:mt-0 px-4">
+          <h1 className="text-3xl sm:text-4xl font-bold">Hitesh Khunt</h1>
+          <h3 className="text-lg sm:text-2xl text-white">
+            CEO & Cofounder of Applie Infosol Pvt Ltd
+          </h3>
+          <p className="text-sm  sm:text-base mt-4 text-white">
+            Hi, I’m Hitesh Khunt—a creative tech enthusiast with over 13 years of experience in the IT industry. I specialize in crafting premium solutions that seamlessly blend technology and design, delivering results that are as functional as they are visually impactful.
+          </p>
+          <p className="text-sm  sm:text-base mt-4 text-white">
+            From solving complex problems to creating unique, user-centric designs, my approach balances innovation with aesthetics to help businesses achieve their goals. If you’re looking for a blend of cutting-edge technology and thoughtful design, you’re in the right place.
+          </p>
+          <p className="text-sm sm:text-base mt-4 text-white">
+            Scroll to see how I bring ideas to life with precision and creativity.
+          </p>
+      
+          {/* Buttons */}
+          <div className="flex flex-row gap-3 mt-6 justify-center lg:justify-start">
+            <NavButton
+              text="My Work"
+              url={labelsRead?.service_slider_btn_url}
+              classname="bg-secondary text-primary uppercase py-2 px-6 text-sm sm:text-base"
+            />
+            <NavButton
+              text={labelsRead?.service_slider_btn_text}
+              url={labelsRead?.service_slider_btn_url}
+              classname="bg-primary text-secondary uppercase hover:bg-secondary hover:text-primary py-2 px-6 text-sm sm:text-base"
+            />
+          </div>
         </div>
+      </div>
+      
 
-
-
-      {/* Brand logos */}
-        <div className="sm:w-full space-y-2 sm:text-left">
-          {/* <p>{labelsRead?.hero_title_2}</p>  */}
-          {fetchedBrandLogos ? (
-            <div className="flex items-center sm:items-start md:items-center flex-col md:flex-row">
-              {/* <p className="text-nowrap text-muted-foreground">TRUSTED BY</p> */}
-              <div className="w-[85%]">
-                <Slider
-                  duration={20}
-                  pauseOnHover={true}
-                  blurBorders={true}
-                  blurBorderColor={"#111111"}
-                >
-                  {fetchedBrandLogos?.map((logo: UpdateBrandLogo) => {
-                    const logoUrl = `${import.meta.env.VITE_API_URL}/api/img/${
-                      logo.logo
-                    }`;
-                    return (
-                      <Slider.Slide key={logo.id}>
-                        <img
-                          src={logoUrl}
-                          alt={`Logo ${logo.name}`}
-                          className="opacity-50"
-                        />
-                      </Slider.Slide>
-                    );
-                  })}
-                </Slider>
-              </div>
+      {/* Brand Logos */}
+      <div className="w-full space-y-4 text-center md:text-left">
+        <p className="text-sm md:text-2xl md:text-center font-semibold">TRUSTED BY</p>
+        {fetchedBrandLogos && (
+          <div className="flex flex-col items-center md:items-start">
+            <div className="w-full md:w-[85%]">
+              <Slider
+                duration={20}
+                pauseOnHover={true}
+                blurBorders={true}
+                blurBorderColor={"#111111"}
+              >
+                {fetchedBrandLogos?.map((logo: UpdateBrandLogo) => {
+                  const logoUrl = `${import.meta.env.VITE_API_URL}/api/img/${logo.logo}`;
+                  return (
+                    <Slider.Slide key={logo.id}>
+                      <img
+                        src={logoUrl}
+                        alt={`Logo ${logo.name}`}
+                        className="opacity-50"
+                      />
+                    </Slider.Slide>
+                  );
+                })}
+              </Slider>
             </div>
-          ) : null}
+          </div>
+        )}
+        
+        {/* Call to Action Button */}
+        <div className="flex justify-center md:justify-start">
           <NavButton
             text={labelsRead?.hero_btn_text}
             url={labelsRead?.hero_btn_url}
             type="primary"
-            classname="sm:px-10 sm:py-3 h-auto"
+            classname="py-2 px-6 sm:px-10 sm:py-3 text-sm sm:text-base"
           />
-          
         </div>
-
+      </div>
     </div>
   );
 };

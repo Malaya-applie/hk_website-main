@@ -14,7 +14,10 @@ import {
   ChartColumnStacked,
   ScanText,
   ImageDown,
+  Key
 } from "lucide-react";
+import { ScrollArea } from "@/components/ui/scroll-area";
+
 
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -102,6 +105,36 @@ export default function AdminLayout() {
       link: "image",
       logo: <ImageDown className="h-4 w-4" />,
     },
+    {
+      id: 14,
+      name: "Portfolio Details",
+      link: "portfolio-details",
+      logo: <BriefcaseBusiness className="h-4 w-4" />,
+    },
+    {
+      id: 15,
+      name: "Portfolio Details Key Features",
+      link: "portfolio-details-key-features",
+      logo: <Key className="h-4 w-4" />,
+    },
+    {
+      id: 16,
+      name: "Portfolio Technology stack",
+      link: "portfolio-technology-stack",
+      logo: <Key className="h-4 w-4" />,
+    },
+    {
+      id: 17,
+      name: "Service Details",
+      link: "service-details",
+      logo: <Key className="h-4 w-4" />,
+    },
+    {
+      id: 18,
+      name: "Service Details Images",
+      link: "service-details-images",
+      logo: <Key className="h-4 w-4" />,
+    },
   ];
   return (
     <div className="grid min-h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
@@ -112,7 +145,9 @@ export default function AdminLayout() {
               <span>Hitesh Khunt.</span>
             </NavLink>
           </div>
+          <ScrollArea className="">
           <div className="flex-1">
+          
             <nav className="grid items-start px-2 text-lg font-medium lg:px-4">
               {navData?.map((nav) => (
                 <NavLink
@@ -135,6 +170,8 @@ export default function AdminLayout() {
               ))}
             </nav>
           </div>
+            </ScrollArea>
+          
         </div>
       </div>
       <div className="flex flex-col">
@@ -190,7 +227,7 @@ export default function AdminLayout() {
               ))}
           </div>
         </header>
-        <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
+        <main className="ms-20 flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
           <Outlet />
         </main>
       </div>

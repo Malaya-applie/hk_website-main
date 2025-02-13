@@ -18,9 +18,9 @@ const NewsLetter = () => {
   };
 
   return (
-    <div className="px-4 mx-20 py-10">
-      <h4 className="text-5xl mb-2">{labelsRead?.newsletter_title}</h4>
-      <p className="text-muted-foreground text-2xl mb-8">
+    <div className="lg:px-4 mx-10 lg:mx-20 py-10">
+      <h4 className="text-xl lg:text-5xl mb-2 text-nowrap">{labelsRead?.newsletter_title}</h4>
+      <p className="text-muted-foreground lg:text-2xl mb-8">
         {labelsRead?.newsletter_text}
       </p>
       <NewsletterSignupForm

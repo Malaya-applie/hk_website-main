@@ -25,13 +25,13 @@ const Footer = () => {
 
   return (
     <>
-      <div className="bg-footer-image bg-no-repeat bg-cover bg-center py-24">
-        <div className="mx-20 px-4 space-y-7 lg:flex lg:items-center">
-          <div className="lg:w-1/2 space-y-4 lg:text-start text-center">
-            <h3 className="text-primary text-4xl">
+      <div className="mx-5 lg:mx-0 bg-footer-image bg-no-repeat bg-cover bg-center py-24 md:py-10">
+        <div className="md:mx-20 lg:mx-20 px-4 space-y-7 lg:flex md:flex md:items-center lg:items-center">
+          <div className="md:me-10 lg:w-1/2 space-y-4 lg:text-start text-start md:-mt-[300px]">
+            <h3 className="text-primary md:text-lg text-md lg:text-4xl">
               {labelsRead?.footer_form_title}
             </h3>
-            <p className="text-primary text-xl">
+            <p className="text-primary md:text-lg text-sm lg:text-xl">
               {labelsRead?.footer_form_text}
             </p>
           </div>
@@ -43,15 +43,15 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="mx-20 px-4 ">
-        <div className="md:flex justify-between items-center space-y-4 my-20">
-          <div className="w-full lg:w-1/2 flex items-center gap-4">
+      <div className="md:mx-10 lg:mx-20 px-4 ">
+        <div className="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0 my-20">
+          <div className="w-full lg:w-1/2 flex flex-col sm:flex-col md:flex-row items-center gap-4 text-center md:text-left">
             <img
               src={labelsRead?.round_image}
               alt={`${labelsRead?.site_name} Image`}
-              className="rounded-full"
+              className="rounded-full w-20 lg:w-auto"
             />
-            <h3 className="lg:text-5xl md:text-4xl sm:text-3xl text-2xl">
+            <h3 className="lg:text-5xl md:text-1xl sm:text-3xl text-2xl">
               {labelsRead?.footer_text}
             </h3>
           </div>
@@ -65,7 +65,7 @@ const Footer = () => {
           </div>
         </div>
         <Separator className="bg-muted-foreground" />
-        <div className="flex flex-col space-y-4 md:flex-row justify-between items-center my-6">
+        <div className="flex flex-col space-y-4 md:space-y-1 md:flex-row justify-between items-center my-6">
           <div className="space-x-6 sm:space-x-12 text-sm sm:text-base">
             {navbars?.map((nav: UpdateNavBar) => (
               <NavLink
@@ -92,7 +92,7 @@ const Footer = () => {
             ))}
           </div>
         </div>
-        <div className="flex gap-8 mb-8">
+        <div className="flex lg:flex lg:gap-8 gap-8 mb-8">
           <a href="#" className="text-muted-foreground hover:text-primary">
             Privacy Policy
           </a>
