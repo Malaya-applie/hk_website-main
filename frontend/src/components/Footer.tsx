@@ -22,7 +22,7 @@ const Footer = () => {
       showError("Failed to create inquiry");
     }
   };
-
+  
   return (
     <>
       <div className="mx-5 lg:mx-0 bg-footer-image bg-no-repeat bg-cover bg-center py-24 md:py-10">
@@ -35,7 +35,7 @@ const Footer = () => {
               {labelsRead?.footer_form_text}
             </p>
           </div>
-          <div className="lg:w-1/2 flex justify-center">
+          <div className="lg:w-1/2 flex justify-center flex-wrap">
             <InquiryForm
               onSubmit={(data) => handleCreate(data)}
               className="max-w-[550px] bg-secondary"

@@ -31,15 +31,15 @@ const ClientFeedbackSlider = () => {
 
   return (
     <div className="lg:mx-30 mx-10">
-      <div className="flex lg:items-center justify-between sm:flex-row flex-col gap-7 mb-8">
-        <h4 className="sm:text-5xl text-2xl md:text-3xl space-y-4">
+      <div className="flex lg:items-center justify-between sm:flex-row gap-7 mb-8">
+        <h4 className="self-center sm:text-5xl text-lg text-nowrap md:text-3xl space-y-4">
           {labelsRead?.client_feedback_title}
         </h4>
         <div className="flex items-center">
           <Button className="bg-secondary hover:bg-secondary" onClick={goPrev}>
             <StepBack />
           </Button>
-          <Separator className="w-36 bg-muted-foreground" />
+          <Separator className="lg:w-36 md:w-36 w-16 sm:w-20 bg-muted-foreground" />
           <Button className="bg-secondary hover:bg-secondary" onClick={goNext}>
             <StepForward />
           </Button>

@@ -94,7 +94,7 @@ export function InquiryForm({
             <FormItem>
               {/* <FormLabel>Service</FormLabel> */}
               <Select onValueChange={field.onChange} defaultValue={field.value}>
-                <FormControl className="border-l-0 border-t-0 border-r-0 rounded-none border-b-2 px-0">
+                <FormControl className="border-l-0 border-t-0 border-r-0 rounded-none px-0">
                   <SelectTrigger>
                     <SelectValue placeholder="Services" />
                   </SelectTrigger>
